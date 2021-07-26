@@ -1,0 +1,90 @@
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Play de musica</title>
+		<link rel="stylesheet" type="text/css" href="estilo.css">
+		<script type="text/javascript">
+			musicas = ["musicas/1.mp3","musicas/2.mp3","musicas/3.mp3","musicas/4.mp3", "musicas/5.mp3"];
+			var atual = 0;
+			var qtm = musicas.length;
+
+
+			
+			function player() {
+				var audio = document.getElementById('audio');
+				audio.src = musicas[atual];
+				audio.play();
+				console.log(audio);
+				document.getElementById('musica').innerHTML = musicas[atual];
+				
+			}
+
+			function parar() {
+				var audio = document.getElementById('audio');
+				audio.src = musicas[atual];
+				audio.pause();
+				document.getElementById('musica').innerHTML = "STOP MUSIC";
+				
+			}
+
+				function proximo(){
+					
+					
+						atual++;
+						var audio = document.getElementById('audio');
+						audio.src = musicas[atual];
+						audio.play();
+						console.log(audio);
+						document.getElementById('musica').innerHTML = musicas[atual];
+
+
+					if(atual == qtm ){
+						atual = 0 ;
+						var audio = document.getElementById('audio');
+						audio.src = musicas[atual];
+						audio.play();
+						console.log(audio);
+						document.getElementById('musica').innerHTML = musicas[atual];
+	
+					}
+					
+				
+			}
+
+			function anterior(){
+					
+						atual--;
+						var audio = document.getElementById('audio');
+						audio.src = musicas[atual];
+						audio.play();
+						console.log(audio);
+						document.getElementById('musica').innerHTML = musicas[atual];
+						;
+
+				 	if( atual <= 0 ){
+				 		atual = qtm ;
+
+				 	}
+	
+					}
+			
+
+
+
+
+		</script>
+	</head>
+	<body>
+	<div class ="divprincipal">
+		<h1>Play de musica<h1>
+			<h1 id="musica"></h1>
+			<h1 id="abc"></h1>
+	<button onclick="player()" id="iconePlay">Play</button>
+	<button onclick="parar()" id="iconebotao">Stop</button>
+	<button onclick="proximo()" id="iconebotao">Next</button>
+	<button onclick="anterior()" id="iconebotao">Previos</button>
+	<audio id="audio" src=""></audio>
+	</div>
+	</body>
+	</html>
